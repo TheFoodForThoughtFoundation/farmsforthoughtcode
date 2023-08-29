@@ -1,7 +1,7 @@
 #include "wifi_config.h"
+#include "config.h"
 
-char ssid[] = "MyOptimum a227c3";
-char pass[] = "umber-807-172"; 
+
 int status = WL_IDLE_STATUS;
 
 WiFiUDP ntpUDP;

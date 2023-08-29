@@ -2,6 +2,7 @@
 Hydroponic System v1
 */
 #include "wifi_config.h"
+#include "water_temperature_sensor.h"
 
 #define SECOND 167 
 #define MINUTE SECOND*60
@@ -38,12 +39,18 @@ void setup() {
 
   // Lights Setup
   pinMode(LIGHT_OUTPUT, OUTPUT);
+
+  // Water Temperature Sensor Setup
+  water_temperature_sensor_setup();
 }
 
 void loop() {
   wifi_tick();
   process_pump();
   process_lights();
+  float water_temperature = get_water_temperature();
+  Serial.println(water_temperature);
+
   delay(100);
 }
 
